@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthControllerUser;
+use App\Http\Controllers\User\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,3 +25,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     Route::post('/logout', [AuthControllerUser::class, 'logout'])->name('logout.user');
     Route::post('/login', [AuthControllerUser::class, 'login'])->name('login.user');
 
+    Route::middleware('auth:sanctum')->group(function () {
+    //   رابط الـ profile
+    Route::get('/profile', [UserController::class, 'profile'])->name('profile');
+    Route::match(['put', 'patch'],'/users/{user}', [UserController::class, 'update'])->name('users.update');
+
+})->middleware('throttle:api');
