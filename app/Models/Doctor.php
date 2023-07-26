@@ -4,10 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Doctor extends Model
+use Laravel\Sanctum\HasApiTokens;
+
+class Doctor extends Authenticatable
 {
     use HasFactory;
+    use HasApiTokens;
+    public $table = 'doctors';
     protected $fillable = [
         'doctor_name',
         'doctor_specialty',
@@ -19,9 +24,13 @@ class Doctor extends Model
         'doctor_license_number',
         'doctor_license_image',
         'address_clinc_doctor',
-        'id_clinc',
-      
+        'clinc_id',
+
     ];
+
+
+
+
     public function clinc()
     {
         return $this->belongsTo(Clinc::class);

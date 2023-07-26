@@ -28,13 +28,13 @@ return new class extends Migration
             $table->unsignedBigInteger('doctor_id');
             $table->tinyInteger('review_booking')->default(0);
             $table->timestamps();
-            
+
             // قيود المفتاح الخارجي
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
-            
-    
-    
+
+
+
        });
     }
 

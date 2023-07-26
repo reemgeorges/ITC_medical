@@ -16,8 +16,6 @@ return new class extends Migration
             $table->string('Laboratories_name');
             $table->string('Laboratories_location');
             $table->string('Laboratories_describe');
-            $table->string('Laboratories_image');
-            $table->string('lab_license_image');
             $table->string('lab_license_number');
             $table->timestamps();
         });

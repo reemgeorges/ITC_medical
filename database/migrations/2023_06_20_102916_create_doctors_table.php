@@ -23,10 +23,11 @@ return new class extends Migration
             $table->string('doctor_license_number');
             $table->string('doctor_license_image');
             $table->string('address_clinc_doctor');
-            $table->unsignedBigInteger('id_clinc');
+            $table->unsigneInteger('clinc_id ');
+
             $table->timestamps();
 
-            $table->foreign('id_clinc')->references('id')->on('clincs');
+            $table->foreign('clinc_id')->references('id')->on('clincs');
         });
 
     }

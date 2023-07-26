@@ -11,14 +11,19 @@ class Clinc extends Model
     protected $fillable = [
         'clinic_name',
         'clinic_name_english',
- 
-      
-      
+
+
+
     ];
 
     public function doctors()
     {
         return $this->HasMany(Doctor::class);
+    }
+
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
     }
 
 

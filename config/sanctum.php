@@ -33,8 +33,38 @@ return [
     |
     */
 
-    'guard' => ['web'],
+    'guards' => [
+        'web' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+        'webdoctor' => [
+            'driver' => 'session',
+            'provider' => 'doctors',
+        ],
+    ],
 
+
+
+
+
+
+    'providers' => [
+        'users' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\User::class,
+        ],
+
+        'doctors' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Doctor::class,
+        ],
+
+        // 'users' => [
+        //     'driver' => 'database',
+        //     'table' => 'users',
+        // ],
+    ],
     /*
     |--------------------------------------------------------------------------
     | Expiration Minutes

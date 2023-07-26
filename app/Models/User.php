@@ -54,13 +54,13 @@ class User extends Authenticatable
         {
             return $this->belongsTo(City::class);
         }
-        public function booking_lab()
+        public function booking_labs()
         {
-            return $this->belongsTo(Booking_Lab::class);
+            return $this->hasMany(Booking_Lab::class);
         }
-        public function booking_clinc()
+        public function booking_clincs()
         {
-            return $this->belongsTo(Booking_Clinc::class);
+            return $this->hasMany(Booking_Clinc::class);
         }
     }
 
